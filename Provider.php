@@ -194,7 +194,8 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function mapUserToObject(array $user)
     {
-        if (request()->filled('user')) {
+//        if (request()->filled('user')) {
+        if (request()->has('user')) {       // Laravel 5.1
             $userRequest = json_decode(request('user'), true);
 
             if (array_key_exists('name', $userRequest)) {
