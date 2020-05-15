@@ -69,7 +69,10 @@ class Provider extends AbstractProvider implements ProviderInterface
 
         if ($this->usesState()) {
             $fields['state'] = md5($state);
-            $fields['nonce'] = Str::uuid().'.'.$state;
+            $uuid            = (method_exists(Str::class, 'uuid'))
+                ? Str::uuid()
+                : \Ramsey\Uuid\Uuid::uuid4()->toString();
+            $fields['nonce'] = $uuid . '.' . $state;
         }
 
         return array_merge($fields, $this->parameters);
