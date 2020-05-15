@@ -21,7 +21,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     const IDENTIFIER = 'APPLE';
 
-    private const URL = 'https://appleid.apple.com';
+    const URL = 'https://appleid.apple.com';
 
     /**
      * {@inheritdoc}
